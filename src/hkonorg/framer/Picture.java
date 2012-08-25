@@ -5,7 +5,7 @@ import android.graphics.Bitmap;
 public class Picture {
 	private Bitmap bitmap;
 
-	public Picture(Bitmap bitmap){
+	public Picture(Bitmap bitmap) {
 		this.setBitmap(bitmap);
 	}
 

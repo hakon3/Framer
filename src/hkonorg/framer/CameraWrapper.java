@@ -34,12 +34,14 @@ public class CameraWrapper {
 		}
 
 		fileUri = Uri.fromFile(photo);
-		Intent intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);		
+		Intent intent = new Intent(
+				android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
 		intent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
 		activity.startActivityForResult(intent, FramerActivity.CAMERA_REQUEST);
 	}
 
-	private File createTemporaryFile(String filename, String filextension) throws IOException {
+	private File createTemporaryFile(String filename, String filextension)
+			throws IOException {
 		File tempDir = Environment.getExternalStorageDirectory();
 		tempDir = new File(tempDir.getAbsolutePath() + "/.temp/");
 		if (tempDir.exists() == false) {
@@ -59,7 +61,8 @@ public class CameraWrapper {
 	}
 
 	// gibbed from stackoverflow
-	// decodes with width and height heuristic for better view in specified viewport
+	// decodes with width and height heuristic for better view in specified
+	// viewport
 	private static Bitmap decodeSampledBitmap(String filename, int reqWidth,
 			int reqHeight) {
 

@@ -11,13 +11,13 @@ public class FramerSession {
 	public FramerSession(Scaler frameScaler) {
 		this.scaler = frameScaler;
 	}
-	
+
 	void addAndScaleFrame(Picture picture, int margin) {
 		scaler.scale(picture);
 		pictures.add(picture);
 		currentFrameWidth += margin;
 	}
-	
+
 	public int getCurrentFrameWidth() {
 		return currentFrameWidth;
 	}
