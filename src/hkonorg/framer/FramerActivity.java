@@ -2,6 +2,8 @@ package hkonorg.framer;
 
 import java.util.ArrayList;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
@@ -47,6 +49,19 @@ public class FramerActivity extends Activity {
 	}
 
 	private void reset() {
+		
+		new AlertDialog.Builder(this).setMessage("Are you sure you would like to clear session?").setCancelable(false).setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+			
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				doReset();				
+			}
+		})
+		.setNegativeButton("No", null)
+		.show();
+	}
+	
+	private void doReset() {
 		RelativeLayout layout = (RelativeLayout) findViewById(R.id.mainLayout);
 		for (ImageView view : imageViews) {
 			layout.removeView(view);
